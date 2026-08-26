@@ -1,135 +1,106 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Phone, Mail, Send, CheckCircle2 } from 'lucide-react'
 import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
+import Reveal from '../components/Reveal.jsx'
+import Placeholder from '../components/Placeholder.jsx'
+import Icon from '../components/Icon.jsx'
 
-const initialForm = { name: '', email: '', message: '' }
+const channels = [
+  { icon: 'Phone', tint: 'bg-brand/12 text-brand-dark', label: 'Call', value: '+91 8879260310', href: 'tel:+918879260310' },
+  { icon: 'MessageCircle', tint: 'bg-[#2E9E82]/14 text-[#227C64]', label: 'WhatsApp', value: '+91 8879260310', href: 'https://api.whatsapp.com/send/?phone=%2B918879260310' },
+  { icon: 'Mail', tint: 'bg-[#C56A45]/14 text-[#B45C3B]', label: 'Email', value: 'admin@another-light.com', href: 'mailto:admin@another-light.com' },
+  { icon: 'Instagram', tint: 'bg-[#6B5FC0]/14 text-[#5A4EB0]', label: 'Instagram', value: '@another_light_counselling', href: 'https://www.instagram.com/another_light_counselling/' },
+]
+
+const empty = { name: '', phone: '', email: '', service: 'Individual Therapy', message: '' }
 
 export default function Contact() {
-  const [form, setForm] = useState(initialForm)
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState(empty)
+  const [sent, setSent] = useState(false)
 
-  function handleChange(e) {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
-  }
+  const update = (k) => (e) => setForm({ ...form, [k]: e.target.value })
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    // NOTE: This is a static front end — there's no backend wired up yet.
-    // Swap this handler for a fetch() call to your API, or a service like
-    // EmailJS / Formspree, to actually deliver messages. See the README.
-    console.log('Contact form submission (not yet connected to a backend):', form)
-    setSubmitted(true)
-    setForm(initialForm)
+    // TODO: wire to EmailJS / Formspree / your Express+Mongo backend.
+    // Example: fetch('/api/contact', { method:'POST', body: JSON.stringify(form) })
+    console.log('Contact form submitted:', form)
+    setSent(true)
+    setForm(empty)
   }
 
   return (
     <PageTransition>
-      <PageHero
-        title="Contact"
-        subtitle="I'd love to hear from you — reach out to book a session or ask a question."
-      />
+      <PageHero eyebrow="Contact" icon="Mail" title="Let's talk"
+        subtitle="Taking the first step is the hardest part — and you've almost done it. Reach out however feels easiest, and I'll get back to you soon." />
 
-      <section className="container-page mt-10 sm:mt-16 pb-16">
-        <div className="grid sm:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-3xl bg-brand text-white p-6 sm:p-8 flex flex-col gap-6"
-          >
-            <div>
-              <h2 className="font-display text-2xl">Looking forward to meeting you</h2>
-            </div>
-            <a href="tel:+918879260310" className="flex items-center gap-3 hover:text-sunshine transition-colors">
-              <Phone size={20} /> +91 88792 60310
-            </a>
-            <a href="mailto:admin@another-light.com" className="flex items-center gap-3 hover:text-sunshine transition-colors break-all">
-              <Mail size={20} /> admin@another-light.com
-            </a>
-            <p className="text-white/80 text-sm mt-4">
-              Sessions are available online and in-person, by appointment. Call or WhatsApp
-              is the fastest way to reach me.
-            </p>
-          </motion.div>
+      <section className="py-16">
+        <div className="container-page grid items-start gap-9 lg:grid-cols-[1fr_1.1fr]">
+          {/* CHANNELS */}
+          <Reveal className="flex flex-col gap-4">
+            {channels.map((c) => (
+              <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer nofollow"
+                 className="card card-hover flex items-start gap-4 p-6">
+                <span className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[15px] ${c.tint}`}>
+                  <Icon name={c.icon} className="h-6 w-6" strokeWidth={1.9} />
+                </span>
+                <span>
+                  <b className="text-[1.02rem] block">{c.label}</b>
+                  <span className="text-muted text-[0.92rem]">{c.value}</span>
+                </span>
+              </a>
+            ))}
+            <Placeholder variant="sky" icon="MapPin" note="Map / location embed goes here" className="min-h-[180px] mt-1" rounded="rounded-[26px]" />
+          </Reveal>
 
-          <motion.form
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            onSubmit={handleSubmit}
-            className="rounded-3xl bg-cloud border border-black/5 shadow-card p-6 sm:p-8 flex flex-col gap-4"
-          >
-            <div>
-              <label htmlFor="name" className="text-xs font-bold uppercase tracking-wide text-ink/60">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                value={form.name}
-                onChange={handleChange}
-                className="mt-1.5 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm focus:border-brand outline-none"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="text-xs font-bold uppercase tracking-wide text-ink/60">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                className="mt-1.5 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm focus:border-brand outline-none"
-                placeholder="you@example.com"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="text-xs font-bold uppercase tracking-wide text-ink/60">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={4}
-                value={form.message}
-                onChange={handleChange}
-                className="mt-1.5 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm focus:border-brand outline-none resize-none"
-                placeholder="How can I help?"
-              />
-            </div>
-            <button
-              type="submit"
-              className="mt-2 inline-flex items-center justify-center gap-2 bg-sunshine text-ink text-xs font-bold uppercase tracking-wide px-6 py-3.5 rounded-xl hover:brightness-95 transition"
-            >
-              {submitted ? (
-                <>
-                  <CheckCircle2 size={16} /> Sent — thank you!
-                </>
-              ) : (
-                <>
-                  <Send size={16} /> Send Message
-                </>
-              )}
-            </button>
-            {submitted && (
-              <p className="text-xs text-ink/50">
-                This is a static demo form — connect it to a backend or EmailJS to actually
-                deliver messages (see README).
-              </p>
+          {/* FORM */}
+          <Reveal delay={0.1} className="card p-7 sm:p-8">
+            <h2 className="font-display text-[clamp(1.4rem,2.6vw,1.8rem)] font-semibold mb-1.5">Send a message</h2>
+            <p className="text-muted text-[0.9rem] mb-6">Tell me a little about what&rsquo;s bringing you here. There are no wrong words.</p>
+
+            {sent && (
+              <div className="mb-5 flex items-center gap-2.5 rounded-2xl bg-[#2E9E82]/12 px-4 py-3 text-[#227C64]">
+                <Icon name="CheckCircle2" className="h-5 w-5" /> Thank you — your message is ready to send. Connect a backend or EmailJS to deliver it.
+              </div>
             )}
-          </motion.form>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Your name"><input required value={form.name} onChange={update('name')} placeholder="Jane Doe" className={inputCls} /></Field>
+                <Field label="Phone"><input value={form.phone} onChange={update('phone')} placeholder="+91" className={inputCls} /></Field>
+              </div>
+              <Field label="Email"><input type="email" required value={form.email} onChange={update('email')} placeholder="you@email.com" className={inputCls} /></Field>
+              <Field label="What are you looking for?">
+                <select value={form.service} onChange={update('service')} className={inputCls}>
+                  <option>Individual Therapy</option>
+                  <option>Couples / Relationship Therapy</option>
+                  <option>Family Therapy</option>
+                  <option>Not sure yet</option>
+                </select>
+              </Field>
+              <Field label="Message">
+                <textarea value={form.message} onChange={update('message')} rows={5}
+                  placeholder="Share as much or as little as you'd like…" className={`${inputCls} resize-y min-h-[120px]`} />
+              </Field>
+              <button type="submit" className="btn-primary w-full"><Icon name="Mail" className="h-4.5 w-4.5" /> Send message</button>
+              <p className="text-center text-[0.78rem] text-muted">Your details stay private and are never shared.</p>
+            </form>
+          </Reveal>
         </div>
       </section>
     </PageTransition>
+  )
+}
+
+const inputCls =
+  'w-full rounded-[13px] border-[1.5px] border-line bg-cloud px-4 py-3 text-[0.95rem] text-ink ' +
+  'transition focus:border-brand focus:outline-none focus:ring-4 focus:ring-brand/25'
+
+function Field({ label, children }) {
+  return (
+    <label className="block">
+      <span className="mb-1.5 block text-[0.85rem] font-semibold">{label}</span>
+      {children}
+    </label>
   )
 }

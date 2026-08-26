@@ -1,18 +1,19 @@
-import { motion } from 'framer-motion'
+import Icon from './Icon.jsx'
 
-export default function SectionHeading({ children, align = 'center', className = '' }) {
-  const alignClass = align === 'left' ? 'text-left items-start' : 'text-center items-center'
+export default function SectionHeading({ eyebrow, icon, title, subtitle, center = false }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.5 }}
-      className={`flex flex-col ${alignClass} ${className}`}
-    >
-      <h2 className="text-pop text-3xl sm:text-4xl md:text-5xl uppercase text-ink tracking-wide">
-        {children}
-      </h2>
-    </motion.div>
+    <div className={center ? 'text-center' : ''}>
+      {eyebrow && (
+        <span className="eyebrow mb-4">
+          {icon && <Icon name={icon} className="h-3.5 w-3.5" strokeWidth={2.2} />} {eyebrow}
+        </span>
+      )}
+      <h2 className="text-[clamp(1.9rem,4vw,2.7rem)] font-semibold">{title}</h2>
+      {subtitle && (
+        <p className={`mt-3 text-[clamp(1rem,1.6vw,1.15rem)] text-muted ${center ? 'mx-auto max-w-2xl' : 'max-w-2xl'}`}>
+          {subtitle}
+        </p>
+      )}
+    </div>
   )
 }

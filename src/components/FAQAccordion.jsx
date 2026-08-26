@@ -1,29 +1,30 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Plus, Minus } from 'lucide-react'
+import Icon from './Icon.jsx'
 
 export default function FAQAccordion({ items }) {
-  const [openIndex, setOpenIndex] = useState(0)
-
+  const [open, setOpen] = useState(0)
   return (
-    <div className="space-y-3">
+    <div className="mx-auto max-w-3xl flex flex-col gap-3.5">
       {items.map((item, i) => {
-        const isOpen = openIndex === i
+        const isOpen = open === i
         return (
           <div
-            key={item.q}
-            className={`rounded-2xl border transition-colors ${
-              isOpen ? 'border-ink/30 bg-cloud' : 'border-black/10 bg-cloud/60'
+            key={i}
+            className={`bg-white border rounded-[18px] overflow-hidden transition-shadow ${
+              isOpen ? 'border-brand/40 shadow-card' : 'border-line'
             }`}
           >
             <button
-              onClick={() => setOpenIndex(isOpen ? -1 : i)}
+              onClick={() => setOpen(isOpen ? -1 : i)}
               aria-expanded={isOpen}
-              className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left"
+              className="w-full text-left flex items-center justify-between gap-4 px-5 py-5"
             >
-              <span className="font-semibold text-ink text-sm sm:text-base">{item.q}</span>
-              <span className="shrink-0 text-ink">
-                {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+              <span className="font-display font-semibold text-[1.05rem] text-ink">{item.q}</span>
+              <span className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition-all ${
+                isOpen ? 'bg-brand text-white rotate-45' : 'bg-brand/12 text-brand-dark'
+              }`}>
+                <Icon name="Plus" className="h-[18px] w-[18px]" />
               </span>
             </button>
             <AnimatePresence initial={false}>
@@ -32,12 +33,9 @@ export default function FAQAccordion({ items }) {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
-                  className="overflow-hidden"
+                  transition={{ duration: 0.28, ease: 'easeInOut' }}
                 >
-                  <div className="mx-4 sm:mx-5 mb-4 sm:mb-5 rounded-xl bg-bubble/70 px-5 py-4 text-sm sm:text-base text-ink/90 leading-relaxed">
-                    {item.a}
-                  </div>
+                  <p className="px-5 pb-5 text-muted text-[0.96rem]">{item.a}</p>
                 </motion.div>
               )}
             </AnimatePresence>

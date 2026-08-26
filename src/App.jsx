@@ -20,7 +20,7 @@ export default function App() {
   const location = useLocation()
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden">
+    <div className="min-h-screen flex flex-col overflow-x-clip">
       <ScrollToTop />
       <Navbar />
       <AnimatePresence mode="wait">

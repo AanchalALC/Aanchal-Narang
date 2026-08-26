@@ -1,28 +1,13 @@
-import { motion } from 'framer-motion'
-import WaveDivider from './WaveDivider.jsx'
-import { stats } from '../data/about.js'
-
-export default function StatsBar() {
+export default function StatsBar({ items }) {
   return (
-    <div className="relative">
-      <WaveDivider />
-      <div className="bg-brand py-10 sm:py-14">
-        <div className="container-page grid grid-cols-1 sm:grid-cols-3 gap-8 text-center text-white">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <p className="font-display text-4xl sm:text-5xl">{s.value}</p>
-              <p className="mt-2 text-sm sm:text-base font-medium text-white/90">{s.label}</p>
-            </motion.div>
-          ))}
+    <div className="grid gap-5 rounded-[34px] bg-gradient-to-br from-brand to-brand-dark p-9 sm:p-11
+                    text-white shadow-card grid-cols-2 lg:grid-cols-4">
+      {items.map((s) => (
+        <div key={s.label} className="text-center">
+          <b className="block font-display text-[clamp(1.7rem,4vw,2.5rem)] font-semibold">{s.value}</b>
+          <span className="text-[0.85rem] opacity-90">{s.label}</span>
         </div>
-      </div>
-      <WaveDivider flip />
+      ))}
     </div>
   )
 }

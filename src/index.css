@@ -3,82 +3,38 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-paper text-ink font-body antialiased;
-  }
-  ::selection {
-    @apply bg-sunshine/70 text-ink;
-  }
-  :focus-visible {
-    outline: 3px solid #0E82B5;
-    outline-offset: 2px;
-  }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper text-ink font-body antialiased; }
+  h1, h2, h3, h4 { @apply font-display; letter-spacing: -0.01em; line-height: 1.12; }
+  ::selection { @apply bg-sunshine/60 text-ink; }
+  :focus-visible { outline: 3px solid #25AEE8; outline-offset: 2px; border-radius: 6px; }
 }
 
-@layer utilities {
-  /* Chunky poster heading with a layered "pop" shadow, echoing the
-     original site's comic-style section titles. */
-  .text-pop {
-    font-family: theme('fontFamily.display');
-    text-shadow:
-      2px 2px 0 #25AEE8,
-      4px 4px 0 #F6DE23,
-      6px 6px 0 rgba(20, 20, 20, 0.12);
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.72rem] font-semibold tracking-[0.16em]
+           uppercase text-brand-dark bg-brand/10 px-3.5 py-1.5 rounded-full;
+    font-family: theme('fontFamily.body');
   }
 
-  .text-pop-sm {
-    font-family: theme('fontFamily.display');
-    text-shadow:
-      1.5px 1.5px 0 #25AEE8,
-      3px 3px 0 #F6DE23;
-  }
+  .btn { @apply inline-flex items-center justify-center gap-2 font-semibold text-[0.95rem]
+                px-6 py-3 rounded-pill transition-all duration-200 whitespace-nowrap; }
+  .btn-primary { @apply btn bg-sunshine text-ink hover:-translate-y-0.5;
+                 box-shadow: 0 6px 18px rgba(246,222,35,.45); }
+  .btn-brand   { @apply btn bg-brand text-white shadow-card hover:bg-brand-dark hover:-translate-y-0.5; }
+  .btn-ghost   { @apply btn bg-white text-ink border-[1.5px] border-line hover:border-brand hover:-translate-y-0.5; }
+  .btn-light   { @apply btn bg-white/15 text-white border-[1.5px] border-white/40 hover:bg-white/25; }
 
-  /* Rainbow underline used beneath the "Aanchal" script logo */
-  .rainbow-fade {
-    height: 6px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      #ef4444 12%,
-      #f97316 24%,
-      #eab308 36%,
-      #22c55e 50%,
-      #06b6d4 64%,
-      #3b82f6 78%,
-      #8b5cf6 92%,
-      transparent 100%
-    );
-    filter: blur(0.3px);
+  .card { @apply bg-white border border-line rounded-[26px] shadow-soft transition-all duration-200; }
+  .card-hover { @apply hover:-translate-y-1.5 hover:shadow-lift; }
+
+  .rainbow-bar {
+    height: 7px;
     border-radius: 999px;
+    background: linear-gradient(90deg,#F6DE23 0%,#57C9EE 30%,#25AEE8 52%,#7A6FE0 74%,#E08A5B 100%);
   }
-
-  /* Speech-bubble shape used in the Reviews page */
-  .speech-bubble {
-    position: relative;
-    border-radius: 1.75rem;
-  }
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -18px;
-    left: 48px;
-    width: 34px;
-    height: 34px;
-    background: inherit;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    border-bottom-left-radius: 8px;
-  }
-  .speech-bubble.bubble-right::after {
-    left: auto;
-    right: 48px;
-    clip-path: polygon(100% 0, 100% 100%, 0 0);
-    border-bottom-right-radius: 8px;
-  }
-
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
-  }
+  .font-script { font-weight: 700; }
 }
+
