@@ -9,9 +9,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Services from './pages/Services.jsx'
 import MediaFeatures from './pages/MediaFeatures.jsx'
-import Blog from './pages/Blog.jsx'
 import Reviews from './pages/Reviews.jsx'
-import Gallery from './pages/Gallery.jsx'
 import FAQs from './pages/FAQs.jsx'
 import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
@@ -29,9 +27,9 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/media-features" element={<MediaFeatures />} />
-          <Route path="/blog" element={<Blog />} />
+          {/* Blog temporarily hidden — route + nav links removed, page kept for later */}
           <Route path="/reviews" element={<Reviews />} />
-          <Route path="/gallery" element={<Gallery />} />
+          {/* Gallery temporarily hidden — route + nav links removed, page kept for later */}
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

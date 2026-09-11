@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
 import Reveal from '../components/Reveal.jsx'
-import Placeholder from '../components/Placeholder.jsx'
 import Icon from '../components/Icon.jsx'
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const channels = [
   { icon: 'Phone', tint: 'bg-brand/12 text-brand-dark', label: 'Call', value: '+91 8879260310', href: 'tel:+918879260310' },
@@ -17,16 +21,43 @@ const empty = { name: '', phone: '', email: '', service: 'Individual Therapy', m
 export default function Contact() {
   const [form, setForm] = useState(empty)
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
   const update = (k) => (e) => setForm({ ...form, [k]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: wire to EmailJS / Formspree / your Express+Mongo backend.
-    // Example: fetch('/api/contact', { method:'POST', body: JSON.stringify(form) })
-    console.log('Contact form submitted:', form)
-    setSent(true)
-    setForm(empty)
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error('EmailJS is not configured — set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY (see .env.example).')
+      setError(true)
+      return
+    }
+
+    setSending(true)
+    setError(false)
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_phone: form.phone,
+          from_email: form.email,
+          service: form.service,
+          message: form.message,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
+      setSent(true)
+      setForm(empty)
+    } catch (err) {
+      console.error('EmailJS send failed:', err)
+      setError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -50,7 +81,6 @@ export default function Contact() {
                 </span>
               </a>
             ))}
-            <Placeholder variant="sky" icon="MapPin" note="Map / location embed goes here" className="min-h-[180px] mt-1" rounded="rounded-[26px]" />
           </Reveal>
 
           {/* FORM */}
@@ -60,7 +90,12 @@ export default function Contact() {
 
             {sent && (
               <div className="mb-5 flex items-center gap-2.5 rounded-2xl bg-[#2E9E82]/12 px-4 py-3 text-[#227C64]">
-                <Icon name="CheckCircle2" className="h-5 w-5" /> Thank you — your message is ready to send. Connect a backend or EmailJS to deliver it.
+                <Icon name="CheckCircle2" className="h-5 w-5" /> Thank you — your message has been sent. I&rsquo;ll get back to you soon.
+              </div>
+            )}
+            {error && (
+              <div className="mb-5 flex items-center gap-2.5 rounded-2xl bg-[#B45C3B]/12 px-4 py-3 text-[#B45C3B]">
+                <Icon name="HeartCrack" className="h-5 w-5" /> Something went wrong sending your message — please try again, or reach out directly via phone, WhatsApp or email above.
               </div>
             )}
 
@@ -82,7 +117,9 @@ export default function Contact() {
                 <textarea value={form.message} onChange={update('message')} rows={5}
                   placeholder="Share as much or as little as you'd like…" className={`${inputCls} resize-y min-h-[120px]`} />
               </Field>
-              <button type="submit" className="btn-primary w-full"><Icon name="Mail" className="h-4.5 w-4.5" /> Send message</button>
+              <button type="submit" disabled={sending} className="btn-primary w-full disabled:opacity-60">
+                <Icon name="Mail" className="h-4.5 w-4.5" /> {sending ? 'Sending…' : 'Send message'}
+              </button>
               <p className="text-center text-[0.78rem] text-muted">Your details stay private and are never shared.</p>
             </form>
           </Reveal>

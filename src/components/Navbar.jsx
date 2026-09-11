@@ -8,9 +8,7 @@ const links = [
   { to: '/about', label: 'About', icon: 'Heart' },
   { to: '/services', label: 'Services', icon: 'Sparkles' },
   { to: '/media-features', label: 'Media', icon: 'Newspaper' },
-  { to: '/blog', label: 'Blog', icon: 'BookOpen' },
   { to: '/reviews', label: 'Reviews', icon: 'Quote' },
-  { to: '/gallery', label: 'Gallery', icon: 'Image' },
   { to: '/faqs', label: 'FAQs', icon: 'HelpCircle' },
   { to: '/contact', label: 'Contact', icon: 'Mail' },
 ]
@@ -56,13 +54,14 @@ export default function Navbar() {
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `px-3.5 py-2 rounded-pill text-[0.9rem] font-medium transition-colors ${
+                  `flex items-center gap-1.5 px-3.5 py-2 rounded-pill text-[0.9rem] font-medium transition-colors ${
                     isActive
                       ? 'text-brand-dark bg-brand/15 font-semibold'
                       : 'text-muted hover:text-ink hover:bg-brand/[0.08]'
                   }`
                 }
               >
+                <Icon name={l.icon} className="h-4 w-4" strokeWidth={1.9} />
                 {l.label}
               </NavLink>
             ))}

@@ -6,8 +6,7 @@ const explore = [
   { to: '/services', label: 'Services' }, { to: '/media-features', label: 'Media Features' },
 ]
 const more = [
-  { to: '/blog', label: 'Blog' }, { to: '/reviews', label: 'Reviews' },
-  { to: '/gallery', label: 'Gallery' }, { to: '/faqs', label: 'FAQs' },
+  { to: '/reviews', label: 'Reviews' }, { to: '/faqs', label: 'FAQs' },
 ]
 const socials = [
   { href: 'https://www.instagram.com/another_light_counselling/', icon: 'Instagram', label: 'Instagram' },

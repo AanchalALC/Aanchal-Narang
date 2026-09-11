@@ -3,6 +3,7 @@ export const services = [
     slug: 'individual-therapy',
     title: 'Individual Therapy',
     icon: 'UserRound',
+    href: 'https://www.another-light.com/service/Compassionate-Inquiry-Therapy',
     summary:
       'One-on-one, trauma-informed sessions for anxiety, depression, identity, self-esteem and everyday overwhelm.',
     body: [
@@ -14,6 +15,7 @@ export const services = [
     slug: 'couples-relationship-therapy',
     title: 'Couples / Relationship Therapy',
     icon: 'HeartHandshake',
+    href: 'https://www.another-light.com/service/couple-therapy',
     summary:
       'A collaborative space for partners to rebuild communication, trust and connection — in any relationship structure.',
     body: [
@@ -25,6 +27,7 @@ export const services = [
     slug: 'family-therapy',
     title: 'Family Therapy',
     icon: 'Users',
+    href: 'https://www.another-light.com/service/Internal-Family-Systems-Therapy',
     summary:
       'Support for families navigating conflict, transitions, parenting challenges or a loved one coming out.',
     body: [

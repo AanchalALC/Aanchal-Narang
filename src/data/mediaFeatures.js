@@ -9,21 +9,38 @@ export const pressBadges = [
 export const featuredHighlights = [
   {
     title: 'Building empathy through restorative justice | Aanchal Narang | TEDxSFIT',
-    source: 'TEDx Talks',
+    source: 'TEDxSFIT',
     type: 'video',
-    href: '#',
+    videoId: '9ABOcdyCYWA',
+    href: 'https://youtu.be/9ABOcdyCYWA',
   },
   {
-    title: 'NHRDN Mind Matters \u2014 Gender and Sexuality in the Workplace',
-    source: 'National HR Network',
+    title: 'LGBTQ+ Awareness Training for Doctors | Aanchal Narang | Another Light Counselling x CEHAT',
+    source: 'Another Light Counselling x CEHAT',
     type: 'video',
-    href: '#',
+    videoId: 'LpYzAyfNx9g',
+    href: 'https://youtu.be/LpYzAyfNx9g',
   },
   {
-    title: 'Aanchal Narang \u2014 Critically Examining The Transgender Bill',
-    source: 'Political Science Association, Wilson College',
+    title: 'Her Home, Her Honour: Aanchal Narang on LGBTQ+ Homeownership Struggles in India',
+    source: 'H&B Magazine',
     type: 'video',
-    href: '#',
+    videoId: 'ToAP85ddYBg',
+    href: 'https://youtu.be/ToAP85ddYBg',
+  },
+  {
+    title: 'Gender and Sexuality in the Workplace',
+    source: 'NHRDN Mind Matters',
+    type: 'video',
+    videoId: 'mbRsLskx6DY',
+    href: 'https://youtu.be/mbRsLskx6DY',
+  },
+  {
+    title: 'Critically Examining The Transgender Bill',
+    source: 'Aanchal Narang',
+    type: 'video',
+    videoId: 'RJGs4g62-r4',
+    href: 'https://youtu.be/RJGs4g62-r4',
   },
 ]
 
@@ -33,8 +50,8 @@ export const pressArticles = [
     eyebrow: 'Experts share tips',
     title: 'Approach to Parenting',
     excerpt:
-      '\u2018There is no one-size-fits-all approach to parenting\u2019: experts share tips to manage rebellious behaviour in children.',
-    href: '#',
+      '‘There is no one-size-fits-all approach to parenting’: experts share tips to manage rebellious behaviour in children.',
+    href: 'https://indianexpress.com/article/parenting/blog/children-rebellious-behaviour-bullying-peer-pressure-tips-for-parents-8424146/',
   },
   {
     outlet: 'Vogue',
@@ -42,45 +59,70 @@ export const pressArticles = [
     title: 'Meet the Psychologist Raising Money',
     excerpt:
       'Aanchal Narang has spent her time in lockdown crowdfunding for organisations working on pandemic-relief with marginalised groups of women across Mumbai.',
-    href: '#',
-  },
-  {
-    outlet: 'The Times of India',
-    eyebrow: 'Talk it out',
-    title: 'Smelling a Perfume Can Stop Painful Flashbacks',
-    excerpt:
-      'Grounding techniques like smelling a perfume can stop painful flashbacks.',
-    href: '#',
+    href: 'https://www.vogue.in/culture-and-living/content/vogue-warriors-psychologist-aanchal-narang-raising-money-for-sex-workers-women-in-homeless-shelters',
   },
   {
     outlet: 'Hindustan Times',
     eyebrow: 'Tips for parents',
-    title: 'Address Their Teens\u2019 Body Image Concerns',
+    title: 'Address Their Teens’ Body Image Concerns',
     excerpt:
-      'As a parent, it\u2019s important to support your teen and help them develop a positive and healthy relationship with their body.',
-    href: '#',
+      'As a parent, it’s important to support your teen and help them develop a positive and healthy relationship with their body.',
+    href: 'https://www.hindustantimes.com/lifestyle/relationships/tips-for-parents-to-address-their-teen-s-body-image-concerns-101675494188579.html',
   },
   {
-    outlet: 'Asian Talks',
-    eyebrow: 'Aanchal Narang\u2019s POV',
-    title: 'How IFS Therapy Can Transform Careers',
+    outlet: 'The Hindu',
+    eyebrow: 'Society',
+    title: 'Queer Persons on the Pressure to Conform to a Particular Image',
     excerpt:
-      'Most people believe career struggles stem from a lack of discipline, confidence or motivation. In practice, Aanchal sees something very different.',
-    href: '#',
+      'On the quiet pressure queer people feel to perform a certain identity — and what it costs them.',
+    href: 'https://www.thehindu.com/society/queer-persons-on-the-pressure-to-conform-to-a-particular-image/article69731408.ece',
+  },
+  {
+    outlet: 'Hindustan Times',
+    eyebrow: 'Navigating adolescence',
+    title: '7 Essential Conversations Every Parent Must Have With Their Teenager',
+    excerpt:
+      'Seven conversations that help parents stay connected through the ups and downs of the teenage years.',
+    href: 'https://www.hindustantimes.com/lifestyle/relationships/navigating-adolescence-7-essential-conversations-every-parent-must-have-with-their-teenager-101689769873690.html',
+  },
+  {
+    outlet: 'Forbesstory',
+    eyebrow: 'Relationships, Couples, Cheating',
+    title: 'On Infidelity: What We’re Afraid to Admit About Why Couples Cheat',
+    excerpt:
+      'An honest look at infidelity — why couples cheat, and what it really says about a relationship.',
+    href: 'https://forbesstory.com/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/',
+  },
+  {
+    outlet: 'Daily Pioneer',
+    eyebrow: 'Trauma, Sexual abuse',
+    title: 'How Sexual Assault Leaves the Deepest Wounds',
+    excerpt:
+      'On the long, layered process of healing after sexual trauma.',
+    href: 'https://dailypioneer.in/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/',
+  },
+  {
+    outlet: 'Livemint24',
+    eyebrow: 'Relationships, Couples, Toxicity',
+    title: 'On How Toxic Relationships Really Look',
+    excerpt:
+      'Spotting the red flags — what toxic relationships really look like beneath the surface.',
+    href: 'https://livemint24.com/aanchal-narang-on-how-toxic-relationships-really-look/',
   },
 ]
 
+// Additional outlets that syndicated the same press-release features above
 export const moreFeatures = [
-  'Why New Year\u2019s Eve never actually is as glossy as it looks on-screen',
-  'What is the right way to compliment someone\u2019s body?',
-  'Why giving up can be a good idea sometimes',
-  'Spaces like the fashion closet in \u2018The Bold Type\u2019 are the key to workplace productivity',
-  'In Conversation with Aanchal Narang',
-  'Post-Pandemic Depression and how to deal with it: Aanchal Narang explains the basics',
-  'Dealing with pandemotional issues: psychologist Aanchal Narang shares her guidelines',
-  'Session with Aanchal Narang | Whistling Woods International',
-  'Queer Support Resources ft. Aanchal Narang | MHT Bytes',
-  'Grounding techniques like smelling a perfume can stop painful flashbacks',
-  '#Coronawarrior: Meet Aanchal Narang who is raising funds for sex workers',
-  'Post-Pandemic Depression and how to deal with it \u2014 the basics explained',
+  { outlet: 'Khabar OnDemand', title: 'On How Toxic Relationships Really Look', href: 'https://khabarondemand.com/aanchal-narang-on-how-toxic-relationships-really-look/' },
+  { outlet: 'Today Now', title: 'On How Toxic Relationships Really Look', href: 'https://todaynow.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
+  { outlet: 'Tycoon World', title: 'On How Toxic Relationships Really Look', href: 'https://tycoonworld.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
+  { outlet: 'Daily Tribune', title: 'On How Toxic Relationships Really Look', href: 'https://dailytribune.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
+  { outlet: 'Entrepreneur View', title: 'On Infidelity: What We’re Afraid to Admit', href: 'https://entrepreneurview.in/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
+  { outlet: 'Herald Post', title: 'On Infidelity: What We’re Afraid to Admit', href: 'https://heraldpost.in/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
+  { outlet: 'The Bharat Now', title: 'On Infidelity: What We’re Afraid to Admit', href: 'https://thebharatnow.com/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
+  { outlet: 'Dhunt', title: 'On Infidelity: What We’re Afraid to Admit', href: 'http://dhunt.in/13Xojp' },
+  { outlet: 'The Asian Talks', title: 'How Sexual Assault Leaves the Deepest Wounds', href: 'https://theasiantalks.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { outlet: 'Mumbai Times', title: 'How Sexual Assault Leaves the Deepest Wounds', href: 'https://mumbaitimes.org/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { outlet: 'The Cover Magazine', title: 'How Sexual Assault Leaves the Deepest Wounds', href: 'https://thecovermagazine.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { outlet: 'The Asian Age', title: 'How Sexual Assault Leaves the Deepest Wounds', href: 'https://theasianage.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
 ]

@@ -13,11 +13,13 @@ export default function Reviews() {
 
       <section className="py-16">
         <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
             {reviews.map((r, i) => (
-              <Reveal key={r.name} delay={(i % 3) * 0.07}>
-                <ReviewBubble name={r.name} text={r.text} index={i} />
-              </Reveal>
+              <div key={i} className="mb-6 break-inside-avoid">
+                <Reveal delay={(i % 3) * 0.07}>
+                  <ReviewBubble name={r.name} text={r.text} index={i} />
+                </Reveal>
+              </div>
             ))}
           </div>
 

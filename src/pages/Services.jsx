@@ -36,9 +36,16 @@ export default function Services() {
               <div className="space-y-2.5 mb-5 flex-1">
                 {s.body.map((p, j) => <p key={j} className="text-muted text-[0.93rem]">{p}</p>)}
               </div>
-              <Link to="/contact" rel="nofollow" className="inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-brand-dark">
-                Book now <Icon name="ArrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <Link to="/contact" rel="nofollow" className="inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-brand-dark">
+                  Book now <Icon name="ArrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                {s.href && (
+                  <a href={s.href} target="_blank" rel="noopener noreferrer nofollow" className="inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-muted hover:text-brand-dark">
+                    Learn more <Icon name="ArrowUpRight" className="h-4 w-4" />
+                  </a>
+                )}
+              </div>
             </Reveal>
           ))}
         </div>

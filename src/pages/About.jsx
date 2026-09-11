@@ -2,14 +2,12 @@ import { Link } from 'react-router-dom'
 import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
 import Reveal from '../components/Reveal.jsx'
-import Placeholder from '../components/Placeholder.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import StatsBar from '../components/StatsBar.jsx'
 import Icon from '../components/Icon.jsx'
+import aanchal from '../assets/AanchalNarang.jpeg'
 import { stats, introParagraphs, education, cpd } from '../data/about.js'
 import { specializations } from '../data/specializations.js'
-
-const paraTints = ['sky', 'peach', 'mint', 'lav']
 
 export default function About() {
   return (
@@ -19,23 +17,23 @@ export default function About() {
 
       {/* PORTRAIT + APPROACH */}
       <section className="py-16">
-        <div className="container-page grid items-start gap-11 lg:grid-cols-2">
+        <div className="container-page grid items-start gap-11 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
-            <Placeholder variant="peach" icon="UserRound" label="Portrait of Aanchal"
-              note="Replace with your photo" className="min-h-[440px] rounded-[34px]" rounded="rounded-[34px]" />
+            <img src={aanchal} alt="Aanchal Narang" loading="lazy"
+              className="aspect-[4/5] w-full rounded-[34px] object-cover shadow-card" />
           </Reveal>
           <Reveal delay={0.1}>
             <SectionHeading eyebrow="My approach" icon="Sprout" title="Care that meets you where you are" />
-            <div className="mt-4 space-y-4">
+            <div className="mt-5 divide-y divide-line">
               {introParagraphs.map((p, i) => (
-                <div key={p.heading} className="card p-6 flex gap-4">
+                <div key={p.heading} className="flex items-start gap-4 py-5 first:pt-0">
                   <div className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl
                                    ${['bg-brand/12 text-brand-dark','bg-[#C56A45]/12 text-[#B45C3B]','bg-[#2E9E82]/12 text-[#227C64]','bg-[#6B5FC0]/12 text-[#5A4EB0]'][i % 4]}`}>
                     <Icon name={p.icon} className="h-5 w-5" strokeWidth={1.9} />
                   </div>
                   <div>
                     <b className="font-display text-[1.02rem] block mb-1">{p.heading}</b>
-                    <p className="text-muted text-[0.92rem]">{p.body}</p>
+                    <p className="text-muted text-[0.92rem] leading-relaxed">{p.body}</p>
                   </div>
                 </div>
               ))}

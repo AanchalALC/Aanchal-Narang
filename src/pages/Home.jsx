@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageTransition from '../components/PageTransition.jsx'
 import Reveal from '../components/Reveal.jsx'
-import Placeholder from '../components/Placeholder.jsx'
+import aanchal from '../assets/AanchalNarang.jpeg'
 import ServiceCard from '../components/ServiceCard.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import StatsBar from '../components/StatsBar.jsx'
@@ -45,8 +45,8 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={0.1} className="relative">
-              <Placeholder variant="sky" icon="UserRound" label="Aanchal Narang"
-                note="Replace with your portrait photo" className="min-h-[440px] rounded-[34px]" rounded="rounded-[34px]" />
+              <img src={aanchal} alt="Aanchal Narang" loading="eager"
+                className="min-h-[440px] w-full rounded-[34px] object-cover shadow-card" />
               <div className="absolute -bottom-4 -left-4 flex items-center gap-3 rounded-[18px] border border-line bg-white px-4 py-3.5 shadow-card">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand/[0.14] text-brand-dark">
                   <Icon name="ShieldCheck" className="h-5 w-5" />
@@ -69,12 +69,15 @@ export default function Home() {
               subtitle="Therapy works best when you feel comfortable — and comfort starts with a friendly face. A short introduction so the first session feels a little more familiar." />
             <Link to="/about" rel="nofollow" className="btn-ghost mt-6">Read my story <Icon name="ArrowRight" className="h-4.5 w-4.5" /></Link>
           </Reveal>
-          <Reveal delay={0.1} className="relative">
-            <Placeholder variant="lav" icon="Play" note="Replace with your intro video"
-              className="min-h-[360px] rounded-[34px]" rounded="rounded-[34px]" />
-            <span className="absolute inset-0 m-auto flex h-20 w-20 items-center justify-center rounded-full bg-white/90 shadow-lift">
-              <Icon name="Play" className="h-8 w-8 text-brand-dark ml-1" />
-            </span>
+          <Reveal delay={0.1} className="relative overflow-hidden rounded-[34px] shadow-lift aspect-video">
+            <iframe
+              src="https://player.vimeo.com/video/1149666154?app_id=122963"
+              title="Meet Aanchal Narang"
+              className="absolute inset-0 h-full w-full"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              allowFullScreen
+            />
           </Reveal>
         </div>
       </section>

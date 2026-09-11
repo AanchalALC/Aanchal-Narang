@@ -33,7 +33,21 @@ export default function MediaFeatures() {
           <div className="grid gap-6 lg:grid-cols-3">
             {featuredHighlights.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.08} className="card overflow-hidden flex flex-col">
-                <Placeholder variant={artTints[i % artTints.length]} icon="Play" note="Video" rounded="rounded-none" className="min-h-[180px]" />
+                <a href={f.href} target="_blank" rel="noopener noreferrer nofollow" className="relative block min-h-[180px] overflow-hidden bg-ink/5">
+                  {f.videoId ? (
+                    <img
+                      src={`https://img.youtube.com/vi/${f.videoId}/hqdefault.jpg`}
+                      alt={f.title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Placeholder variant={artTints[i % artTints.length]} icon="Play" note="Video" rounded="rounded-none" className="min-h-[180px]" />
+                  )}
+                  <span className="pointer-events-none absolute inset-0 m-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lift">
+                    <Icon name="Play" className="h-6 w-6 text-brand-dark ml-0.5" />
+                  </span>
+                </a>
                 <div className="p-6 flex flex-col gap-2 flex-1">
                   <span className="self-start rounded-full bg-brand/[0.11] px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-brand-dark">{f.source}</span>
                   <h3 className="text-[1.05rem] font-semibold leading-snug">{f.title}</h3>
@@ -78,9 +92,11 @@ export default function MediaFeatures() {
             <SectionHeading eyebrow="More mentions" icon="Sparkles" title="Elsewhere in the media" />
             <ul className="mt-6 grid gap-x-8 gap-y-3 md:grid-cols-2">
               {moreFeatures.map((m) => (
-                <li key={m} className="flex items-start gap-2.5">
+                <li key={m.href} className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
-                  <span className="text-[0.92rem] text-muted">{m}</span>
+                  <a href={m.href} target="_blank" rel="noopener noreferrer nofollow" className="text-[0.92rem] text-muted hover:text-brand-dark">
+                    <span className="font-semibold text-ink">{m.outlet}</span> — {m.title}
+                  </a>
                 </li>
               ))}
             </ul>
