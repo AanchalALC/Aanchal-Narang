@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageTransition from '../components/PageTransition.jsx'
 import Reveal from '../components/Reveal.jsx'
-import aanchal from '../assets/AanchalNarang.jpeg'
+import aanchal from '../assets/aanchal/AanchalNarang.jpeg'
 import ServiceCard from '../components/ServiceCard.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import StatsBar from '../components/StatsBar.jsx'
@@ -32,7 +32,6 @@ export default function Home() {
               </p>
               <div className="mt-6 flex flex-wrap gap-3.5">
                 <Link to="/about" rel="nofollow" className="btn-brand">Get to know me <Icon name="ArrowRight" className="h-4.5 w-4.5" /></Link>
-                <Link to="/contact" rel="nofollow" className="btn-ghost"><Icon name="Calendar" className="h-4.5 w-4.5" /> Book a free intro call</Link>
               </div>
               <div className="mt-8 flex flex-wrap gap-7">
                 {[['3,000+', 'Clients supported'], ['20,000+', 'Hours of therapy'], ['100%', 'Judgement-free']].map(([n, t]) => (
@@ -63,13 +62,13 @@ export default function Home() {
 
       {/* INTRO VIDEO */}
       <section className="py-14">
-        <div className="container-page grid items-center gap-11 lg:grid-cols-2">
-          <Reveal>
-            <SectionHeading eyebrow="A quick hello" icon="Play" title="Meet me before we meet"
+        <div className="container-page">
+          <Reveal className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+            <SectionHeading center eyebrow="A quick hello" icon="Play" title="Meet me before we meet"
               subtitle="Therapy works best when you feel comfortable — and comfort starts with a friendly face. A short introduction so the first session feels a little more familiar." />
             <Link to="/about" rel="nofollow" className="btn-ghost mt-6">Read my story <Icon name="ArrowRight" className="h-4.5 w-4.5" /></Link>
           </Reveal>
-          <Reveal delay={0.1} className="relative overflow-hidden rounded-[34px] shadow-lift aspect-video">
+          <Reveal className="relative aspect-video overflow-hidden rounded-[28px] shadow-lift sm:rounded-[34px]">
             <iframe
               src="https://player.vimeo.com/video/1149666154?app_id=122963"
               title="Meet Aanchal Narang"

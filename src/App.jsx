@@ -9,6 +9,7 @@ import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Services from './pages/Services.jsx'
 import MediaFeatures from './pages/MediaFeatures.jsx'
+import Gallery from './pages/Gallery.jsx'
 import Reviews from './pages/Reviews.jsx'
 import FAQs from './pages/FAQs.jsx'
 import Contact from './pages/Contact.jsx'
@@ -29,7 +30,7 @@ export default function App() {
           <Route path="/media-features" element={<MediaFeatures />} />
           {/* Blog temporarily hidden — route + nav links removed, page kept for later */}
           <Route path="/reviews" element={<Reviews />} />
-          {/* Gallery temporarily hidden — route + nav links removed, page kept for later */}
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

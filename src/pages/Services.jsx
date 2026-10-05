@@ -6,6 +6,7 @@ import SectionHeading from '../components/SectionHeading.jsx'
 import CurveDivider from '../components/CurveDivider.jsx'
 import Icon from '../components/Icon.jsx'
 import { services } from '../data/services.js'
+import aanchalSpeaking from '../assets/aanchal/Aanchal_Speaker Pic.jpg'
 
 const tints = ['sky', 'peach', 'mint']
 const iconTints = {
@@ -48,6 +49,26 @@ export default function Services() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* MEET YOUR THERAPIST */}
+      <section className="pb-16">
+        <div className="container-page">
+          <Reveal className="grid overflow-hidden rounded-[30px] border border-line bg-white shadow-card md:grid-cols-[0.9fr_1.1fr]">
+            <img src={aanchalSpeaking} alt="Aanchal speaking at an event"
+              className="h-72 w-full object-cover object-center md:h-full md:min-h-[360px]" loading="lazy" />
+            <div className="flex flex-col items-start justify-center p-7 sm:p-10 lg:p-12">
+              <span className="eyebrow mb-4"><Icon name="Heart" className="h-3.5 w-3.5" /> A little about me</span>
+              <h2 className="text-[clamp(1.7rem,3.5vw,2.4rem)] font-semibold">Support that starts with a conversation</h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-muted">
+                I’m Aanchal. My role is to meet you with warmth, curiosity, and care — and to work together at a pace that feels right for you.
+              </p>
+              <Link to="/about" rel="nofollow" className="btn-ghost mt-6">
+                Get to know me <Icon name="ArrowRight" className="h-4.5 w-4.5" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

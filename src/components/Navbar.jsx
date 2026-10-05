@@ -8,6 +8,7 @@ const links = [
   { to: '/about', label: 'About', icon: 'Heart' },
   { to: '/services', label: 'Services', icon: 'Sparkles' },
   { to: '/media-features', label: 'Media', icon: 'Newspaper' },
+  { to: '/gallery', label: 'Gallery', icon: 'Image' },
   { to: '/reviews', label: 'Reviews', icon: 'Quote' },
   { to: '/faqs', label: 'FAQs', icon: 'HelpCircle' },
   { to: '/contact', label: 'Contact', icon: 'Mail' },

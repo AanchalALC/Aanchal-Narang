@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import StatsBar from '../components/StatsBar.jsx'
 import Icon from '../components/Icon.jsx'
-import aanchal from '../assets/AanchalNarang.jpeg'
+import aanchal from '../assets/aanchal/Aanchal_Pic 1.jpeg'
 import { stats, introParagraphs, education, cpd } from '../data/about.js'
 import { specializations } from '../data/specializations.js'
 
@@ -19,7 +19,7 @@ export default function About() {
       <section className="py-16">
         <div className="container-page grid items-start gap-11 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
-            <img src={aanchal} alt="Aanchal Narang" loading="lazy"
+            <img src={aanchal} alt="Aanchal speaking at a public event" loading="lazy"
               className="aspect-[4/5] w-full rounded-[34px] object-cover shadow-card" />
           </Reveal>
           <Reveal delay={0.1}>
@@ -37,6 +37,29 @@ export default function About() {
                   </div>
                 </div>
               ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* INTRO VIDEO */}
+      <section className="bg-gradient-to-b from-[#EAF6FD]/70 to-paper py-10 sm:py-14">
+        <div className="container-page">
+          <Reveal className="mb-6 text-center sm:mb-8">
+            <span className="eyebrow mb-3"><Icon name="Play" className="h-3.5 w-3.5" /> A little about me</span>
+            <h2 className="font-display text-[clamp(1.7rem,3.5vw,2.4rem)] font-semibold">Get to know Aanchal</h2>
+          </Reveal>
+          <Reveal delay={0.1} className="mx-auto max-w-4xl overflow-hidden rounded-[24px] border border-white/80 bg-white p-2.5 shadow-lift sm:rounded-[34px] sm:p-3.5">
+            <div className="aspect-video overflow-hidden rounded-[17px] bg-ink sm:rounded-[25px]">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/a7nO4PjCwKc"
+                title="Aanchal Narang — an introduction"
+                className="h-full w-full"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
           </Reveal>
         </div>

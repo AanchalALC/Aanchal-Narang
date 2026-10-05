@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal.jsx'
 import ReviewBubble from '../components/ReviewBubble.jsx'
 import Icon from '../components/Icon.jsx'
 import { reviews } from '../data/reviews.js'
+import aanchal from '../assets/aanchal/AanchalNarang.jpeg'
 
 export default function Reviews() {
   return (
@@ -23,12 +24,16 @@ export default function Reviews() {
             ))}
           </div>
 
-          <Reveal className="mx-auto mt-12 max-w-xl card p-9 text-center">
-            <div className="flex justify-center gap-1 mb-3 text-sunshine">
-              {Array.from({ length: 5 }).map((_, i) => <Icon key={i} name="Star" className="h-5 w-5 fill-sunshine" strokeWidth={0} />)}
+          <Reveal className="mx-auto mt-12 grid max-w-3xl overflow-hidden rounded-[28px] border border-line bg-white shadow-card sm:grid-cols-[0.8fr_1.2fr]">
+            <img src={aanchal} alt="Aanchal at work in her practice" loading="lazy"
+              className="h-56 w-full object-cover sm:h-full sm:min-h-[230px]" />
+            <div className="flex flex-col items-center justify-center p-7 text-center sm:p-9">
+              <div className="mb-3 flex justify-center gap-1 text-sunshine">
+                {Array.from({ length: 5 }).map((_, i) => <Icon key={i} name="Star" className="h-5 w-5 fill-sunshine" strokeWidth={0} />)}
+              </div>
+              <p className="font-display text-[1.5rem] font-semibold text-brand-dark">4.9 / 5 average rating</p>
+              <p className="text-muted">Across sessions with individuals, couples and families</p>
             </div>
-            <p className="font-display text-[1.5rem] text-brand-dark font-semibold">4.9 / 5 average rating</p>
-            <p className="text-muted">Across sessions with individuals, couples and families</p>
           </Reveal>
         </div>
       </section>

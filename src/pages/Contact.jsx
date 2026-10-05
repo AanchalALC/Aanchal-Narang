@@ -4,6 +4,7 @@ import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Icon from '../components/Icon.jsx'
+import aanchalSpeaking from '../assets/aanchal/Aanchal_Speaker Pic.jpg'
 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -69,6 +70,14 @@ export default function Contact() {
         <div className="container-page grid items-start gap-9 lg:grid-cols-[1fr_1.1fr]">
           {/* CHANNELS */}
           <Reveal className="flex flex-col gap-4">
+            <div className="overflow-hidden rounded-[26px] border border-line bg-white shadow-soft">
+              <img src={aanchalSpeaking} alt="Aanchal speaking at an event" loading="lazy"
+                className="h-56 w-full object-cover object-[center_28%]" />
+              <div className="px-5 py-4">
+                <p className="font-display text-lg font-semibold">A warm welcome, whenever you’re ready.</p>
+                <p className="mt-1 text-sm text-muted">Reach out in the way that feels easiest for you.</p>
+              </div>
+            </div>
             {channels.map((c) => (
               <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer nofollow"
                  className="card card-hover flex items-start gap-4 p-6">
