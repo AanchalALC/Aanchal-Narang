@@ -42,20 +42,22 @@ export default function Navbar() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3.5'}`}>
       <div className="container-page">
-        <nav className={`flex items-center justify-between gap-4 rounded-pill border border-line
+        <nav className={`flex items-center justify-between gap-2 rounded-pill border border-line
                         bg-white/80 backdrop-blur-md px-3 py-2.5 pl-5 transition-shadow
                         ${scrolled ? 'shadow-lift' : 'shadow-card'}`}>
-          <Brand />
+          <div className="shrink-0">
+            <Brand />
+          </div>
 
           {/* desktop links */}
-          <div className="hidden xl:flex items-center gap-0.5">
+          <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex">
             {links.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `flex items-center gap-1.5 px-3.5 py-2 rounded-pill text-[0.9rem] font-medium transition-colors ${
+                  `flex items-center gap-1.5 px-2 py-2 rounded-pill text-[0.9rem] font-medium transition-colors ${
                     isActive
                       ? 'text-brand-dark bg-brand/15 font-semibold'
                       : 'text-muted hover:text-ink hover:bg-brand/[0.08]'
@@ -68,7 +70,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex shrink-0 items-center gap-2.5">
             <Link to="/contact" className="btn-primary hidden xl:inline-flex !px-5 !py-2.5">
               <Icon name="Calendar" className="h-[18px] w-[18px]" strokeWidth={2} /> Book a session
             </Link>
