@@ -1,28 +1,19 @@
-# Assets
+# Image assets
 
-Drop your real image files here, then import them in components/pages.
+Store site photography in these folders:
 
-Suggested structure:
-
-```
+```text
 assets/
-├── aanchal.jpg          # profile photo (used in Home + About intro cards)
-├── intro-video.mp4      # 32s intro clip (Home page)
-├── press/               # media-outlet logos
-│   ├── gq-india.png
-│   ├── hindustan-times.png
-│   └── ...
-└── gallery/             # event photos + topic illustrations
-    ├── workshop-1.jpg
-    └── ...
+├── aanchal/   # Aanchal's portraits and public-speaking photos
+└── gallery/   # Photos displayed on the Gallery page
 ```
 
-Example import:
+Import an Aanchal portrait from a page component like this:
 
 ```jsx
-import aanchal from '../assets/aanchal.jpg'
-<img src={aanchal} alt="Aanchal Narang" className="w-48 h-48 rounded-full object-cover" />
+import portrait from '../assets/aanchal/AanchalNarang.jpeg'
+
+<img src={portrait} alt="Aanchal Narang" />
 ```
 
-Until you add real files, the site renders tasteful icon/gradient placeholders
-in their place, so it looks complete out of the box.
+The Gallery page loads supported image files directly from `assets/gallery`.
