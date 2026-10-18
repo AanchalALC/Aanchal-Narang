@@ -14,9 +14,8 @@ const iconTints = {
 }
 const steps = [
   { n: '01', t: 'Reach out', d: 'Send a message or call. Tell me as much or as little as you like.' },
-  { n: '02', t: 'Free intro call', d: 'A short, no-pressure chat to see if we\u2019re the right fit for each other.' },
-  { n: '03', t: 'First session', d: 'We start gently, at your pace, building a space you feel safe in.' },
-  { n: '04', t: 'Grow together', d: 'Ongoing sessions, tailored to you, as you move toward feeling lighter.' },
+  { n: '02', t: 'First session', d: 'We start gently, at your pace, building a space you feel safe in.' },
+  { n: '03', t: 'Grow together', d: 'Ongoing sessions, tailored to you, as you move toward feeling lighter.' },
 ]
 
 export default function Services() {
@@ -79,7 +78,7 @@ export default function Services() {
           <Reveal className="mb-10">
             <SectionHeading center eyebrow="Simple & unhurried" icon="Sprout" title="How it works" />
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.08} className="card p-7">
                 <div className="font-display text-[2rem] font-bold text-brand/40">{s.n}</div>
