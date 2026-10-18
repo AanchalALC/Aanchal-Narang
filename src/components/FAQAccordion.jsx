@@ -35,7 +35,21 @@ export default function FAQAccordion({ items }) {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.28, ease: 'easeInOut' }}
                 >
-                  <p className="px-5 pb-5 text-muted text-[0.96rem]">{item.a}</p>
+                  <p className="px-5 pb-5 text-muted text-[0.96rem]">
+                    {Array.isArray(item.a)
+                      ? item.a.map((part, index) => (
+                        typeof part === 'string'
+                          ? part
+                          : <a
+                            key={index}
+                            href={part.href}
+                            className="text-brand-dark underline-offset-2 hover:underline"
+                          >
+                            {part.label}
+                          </a>
+                      ))
+                      : item.a}
+                  </p>
                 </motion.div>
               )}
             </AnimatePresence>

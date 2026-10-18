@@ -3,11 +3,17 @@
 export const faqs = [
   {
     q: 'How long is a session?',
-    a: 'A session is typically 60 minutes long. However, we can take a break at any point if we feel it is difficult to go on for the day. Or, if you need more time with us, you\u2019re welcome to book back-to-back sessions too!',
+    a: 'A session is typically 50 minutes long. However, we can take a break at any point if we feel it is difficult to go on for the day. Or, if you need more time with us, you\u2019re welcome to book back-to-back sessions too!',
   },
   {
     q: 'How can I book a session?',
-    a: 'You can book a session by reaching out over call, WhatsApp or email. We\u2019ll get back to you to understand what you\u2019re looking for and find a slot that works for you.',
+    a: [
+      'You can book a session by reaching out over call, ',
+      { label: '+91 8879260310', href: 'tel:+918879260310' },
+      ', WhatsApp or email at ',
+      { label: 'admin@another-light.com', href: 'mailto:admin@another-light.com' },
+      '. We\u2019ll get back to you to understand what you\u2019re looking for and find a slot that works for you.',
+    ],
   },
   {
     q: 'Do I need therapy?',
@@ -27,7 +33,7 @@ export const faqs = [
   },
   {
     q: 'Is therapy difficult?',
-    a: 'Therapy can bring up difficult feelings, especially at the start \u2014 that\u2019s a normal part of the process. We move at a pace that feels manageable for you.',
+    a: 'Therapy can bring up difficult feelings \u2014 that\u2019s a normal part of the process. We move at a pace that feels manageable for you.',
   },
   {
     q: 'I\u2019m overwhelmed by coming for therapy alone. Can I bring a friend/family member?',
