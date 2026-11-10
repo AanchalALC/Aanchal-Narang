@@ -1,7 +1,7 @@
 export const stats = [
   { value: '3,000+', label: 'Clients Supported' },
   { value: '20,000+', label: 'Hours of Therapy Offered' },
-  { value: '7,000+', label: 'Individuals Trained' },
+  { value: '7,500+', label: 'Individuals Trained' },
 ]
 
 export const introParagraphs = [

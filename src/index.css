@@ -36,5 +36,22 @@
     background: linear-gradient(90deg,#F6DE23 0%,#57C9EE 30%,#25AEE8 52%,#7A6FE0 74%,#E08A5B 100%);
   }
   .font-script { font-weight: 700; }
+
+  .logo-carousel { @apply overflow-hidden; }
+  .logo-carousel__track {
+    display: flex;
+    width: max-content;
+    animation: logo-carousel-scroll 70s linear infinite;
+  }
+  .logo-carousel:hover .logo-carousel__track,
+  .logo-carousel:focus-within .logo-carousel__track { animation-play-state: paused; }
+  .logo-carousel__group { @apply flex items-center gap-6 pr-6; }
 }
 
+@keyframes logo-carousel-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-carousel__track { animation: none; }
+}

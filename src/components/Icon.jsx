@@ -1,6 +1,6 @@
 import {
   Activity, ArrowRight, ArrowUpRight, Baby, BadgeCheck, BookOpen, Brain, Calendar,
-  Camera, Check, CheckCircle2, Circle, CircleDot, Clock, Cloud, Eye, Flame, Flower2,
+  Camera, Check, CheckCircle2, ChevronLeft, ChevronRight, Circle, CircleDot, Clock, Cloud, Eye, Flame, Flower2,
   Globe2, GraduationCap, HandHeart, Heart, HeartCrack, HeartHandshake, HeartPulse,
   HelpCircle, Home, Image, Instagram, KeyRound, Landmark, Laptop, Layers, Mail, MapPin,
   Menu, MessageCircle, MessageCircleHeart, Minus, MoonStar, Newspaper, PenTool, PersonStanding,
@@ -11,7 +11,7 @@ import {
 // String-name -> component map. Add an import + entry to ship a new icon.
 const map = {
   Activity, ArrowRight, ArrowUpRight, Baby, BadgeCheck, BookOpen, Brain, Calendar,
-  Camera, Check, CheckCircle2, CircleDot, Clock, Cloud, Eye, Flame, Flower2,
+  Camera, Check, CheckCircle2, ChevronLeft, ChevronRight, CircleDot, Clock, Cloud, Eye, Flame, Flower2,
   Globe2, GraduationCap, HandHeart, Heart, HeartCrack, HeartHandshake, HeartPulse,
   HelpCircle, Home, Image, Instagram, KeyRound, Landmark, Laptop, Layers, Mail, MapPin,
   Menu, MessageCircle, MessageCircleHeart, Minus, MoonStar, Newspaper, PenTool, PersonStanding,

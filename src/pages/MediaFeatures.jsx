@@ -2,10 +2,10 @@ import PageTransition from '../components/PageTransition.jsx'
 import PageHero from '../components/PageHero.jsx'
 import Reveal from '../components/Reveal.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
-import PressBadge from '../components/PressBadge.jsx'
+import LogoCarousel from '../components/LogoCarousel.jsx'
 import Placeholder from '../components/Placeholder.jsx'
 import Icon from '../components/Icon.jsx'
-import { pressBadges, featuredHighlights, pressArticles, moreFeatures } from '../data/mediaFeatures.js'
+import { featuredHighlights, pressArticles, moreFeatures } from '../data/mediaFeatures.js'
 
 const artTints = ['sky', 'peach', 'mint', 'lav', 'sun']
 
@@ -15,12 +15,13 @@ export default function MediaFeatures() {
       <PageHero eyebrow="Media Features" icon="Newspaper" title="In the press"
         subtitle="Grateful to have shared my perspective on mental health, relationships and healing across some of India's leading publications." />
 
-      {/* PRESS BADGES */}
+      {/* IN THE PRESS */}
       <section className="py-16">
-        <div className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {pressBadges.map((p) => (
-            <Reveal key={p.name}><PressBadge name={p.name} /></Reveal>
-          ))}
+        <div className="container-page">
+          <Reveal className="mb-9">
+            <SectionHeading center eyebrow="In the press" icon="Newspaper" title="Featured across the media" />
+          </Reveal>
+          <LogoCarousel />
         </div>
       </section>
 

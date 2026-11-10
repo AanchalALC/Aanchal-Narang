@@ -6,11 +6,11 @@ import ServiceCard from '../components/ServiceCard.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import StatsBar from '../components/StatsBar.jsx'
 import CurveDivider from '../components/CurveDivider.jsx'
-import PressBadge from '../components/PressBadge.jsx'
+import LogoCarousel from '../components/LogoCarousel.jsx'
+import ReviewCarousel from '../components/ReviewCarousel.jsx'
 import Icon from '../components/Icon.jsx'
 import { services } from '../data/services.js'
 import { stats } from '../data/about.js'
-import { pressBadges } from '../data/mediaFeatures.js'
 
 const tints = ['sky', 'peach', 'mint']
 
@@ -103,34 +103,33 @@ export default function Home() {
       {/* STATS */}
       <section className="py-14">
         <div className="container-page">
-          <Reveal><StatsBar items={[...stats, { value: '9+', label: 'Press features' }]} /></Reveal>
+          <Reveal><StatsBar items={[...stats, { value: '100+', label: 'Press features' }]} /></Reveal>
         </div>
       </section>
 
       {/* PRESS */}
-      <section className="pb-14 text-center">
+      <section className="py-20 text-center">
         <div className="container-page">
           <Reveal>
             <span className="eyebrow mb-5"><Icon name="Newspaper" className="h-3.5 w-3.5" /> As featured in</span>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {pressBadges.map((p) => <PressBadge key={p.name} name={p.name} />)}
-            </div>
+            <LogoCarousel />
             <Link to="/media-features" rel="nofollow" className="btn-ghost mt-7">See all features <Icon name="ArrowRight" className="h-4.5 w-4.5" /></Link>
           </Reveal>
         </div>
       </section>
 
       {/* REVIEW HIGHLIGHT */}
-      <section className="pb-14">
+      <section className="py-20">
         <div className="container-page">
-          <Reveal className="mx-auto max-w-2xl card p-10 text-center">
-            <div className="flex justify-center gap-1 mb-3.5 text-sunshine">
-              {Array.from({ length: 5 }).map((_, i) => <Icon key={i} name="Star" className="h-5 w-5 fill-sunshine" strokeWidth={0} />)}
+          <Reveal>
+            <SectionHeading center eyebrow="Client reviews" icon="Quote" title="Kind words from clients"
+              subtitle="Real reflections from people I've had the privilege of walking alongside." />
+            <div className="mt-8">
+              <ReviewCarousel />
             </div>
-            <p className="font-display text-[1.2rem] text-ink mb-2">
-              &ldquo;A profoundly safe and intuitive space. Sessions leave me feeling grounded and genuinely heard.&rdquo;
-            </p>
-            <p className="text-muted font-semibold">— A client, Individual Therapy</p>
+            <div className="mt-6 text-center">
+              <Link to="/reviews" rel="nofollow" className="btn-ghost">Read all reviews <Icon name="ArrowRight" className="h-4.5 w-4.5" /></Link>
+            </div>
           </Reveal>
         </div>
       </section>
