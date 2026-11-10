@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
 import { pressLogos } from '../data/mediaFeatures.js'
 
 function Logo({ name, image, href, decorative = false }) {
@@ -29,8 +31,57 @@ function Logo({ name, image, href, decorative = false }) {
 }
 
 export default function LogoCarousel() {
+  const carouselRef = useRef(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const shouldReduceMotion = useReducedMotion()
+
+  useEffect(() => {
+    if (isPaused || shouldReduceMotion) return undefined
+
+    const carousel = carouselRef.current
+    if (!carousel) return undefined
+
+    let frameId
+    let previousTime
+    const scroll = (time) => {
+      if (previousTime !== undefined) {
+        const loopWidth = carousel.scrollWidth / 2
+        if (loopWidth > 0) {
+          carousel.scrollLeft += Math.min(time - previousTime, 50) * 0.03
+          if (carousel.scrollLeft >= loopWidth) carousel.scrollLeft -= loopWidth
+        }
+      }
+
+      previousTime = time
+      frameId = window.requestAnimationFrame(scroll)
+    }
+
+    frameId = window.requestAnimationFrame(scroll)
+    return () => window.cancelAnimationFrame(frameId)
+  }, [isPaused, shouldReduceMotion])
+
+  const handleWheel = (event) => {
+    if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+      event.preventDefault()
+      event.currentTarget.scrollLeft += event.deltaY
+    }
+  }
+
   return (
-    <div className="logo-carousel" aria-label="Publications featuring Aanchal Narang">
+    <div
+      ref={carouselRef}
+      className="logo-carousel"
+      role="region"
+      aria-label="Publications featuring Aanchal Narang"
+      tabIndex={0}
+      onPointerEnter={() => setIsPaused(true)}
+      onPointerLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false)
+      }}
+      onWheel={handleWheel}
+    >
       <div className="logo-carousel__track">
         <div className="logo-carousel__group">
           {pressLogos.map((logo) => <Logo key={logo.name} {...logo} />)}
