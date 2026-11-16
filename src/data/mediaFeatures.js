@@ -1,49 +1,70 @@
+import asianTalks from '../assets/logos/asian talks.webp'
 import asianAge from '../assets/logos/asianage.webp'
-import asianTalks from '../assets/logos/asiantalks.webp'
 import bharatNow from '../assets/logos/bharatnow.jpg'
 import coverMagazine from '../assets/logos/covermagazine.webp'
 import dailyHunt from '../assets/logos/dailyhunt.svg'
 import dailyPioneer from '../assets/logos/dailypioneer.webp'
 import dailyTribune from '../assets/logos/DT-LOGO.webp'
 import entrepreneurView from '../assets/logos/ET-VIEW.webp'
+import forbes from '../assets/logos/forbes.png'
 import forbesStory from '../assets/logos/forebes story.png'
+import gq from '../assets/logos/gq.png'
 import hbMagazine from '../assets/logos/hbmagazine.png'
 import heraldPost from '../assets/logos/herald post.webp'
+import hindustanSaga from '../assets/logos/hindustansaga.webp'
 import hindustanTimes from '../assets/logos/hindustan-times.jpg'
+import indiaToday from '../assets/logos/indiatoday.png'
 import indianExpress from '../assets/logos/indian express.png'
+import madeInAsia from '../assets/logos/madeinasia.png'
+import medicircle from '../assets/logos/medicircle.jpg'
+import midday from '../assets/logos/midday.webp'
+import mumbaiTimes from '../assets/logos/mumbaitimes.png'
+import news18 from '../assets/logos/news18.png'
 import livemint from '../assets/logos/livemint.webp'
-import mumbaiTimes from '../assets/logos/Mumbai-Times-lo.webp'
 import nhrd from '../assets/logos/nhrd.png'
 import onKhabar from '../assets/logos/onkhabar.webp'
-import tedx from '../assets/logos/TEDx-Logo.png'
+import sheThePeople from '../assets/logos/shethepeople.webp'
+import tedx from '../assets/logos/tedx.jpg'
 import theHindu from '../assets/logos/the hindu.webp'
 import todayNow from '../assets/logos/todaynow.webp'
+import toi from '../assets/logos/toi.png'
 import tycoonWorld from '../assets/logos/tycoonworld.webp'
 import vogue from '../assets/logos/vogue.png'
 
 export const pressLogos = [
+  { name: 'TOI', image: toi },
+  { name: 'Hindustan Times', image: hindustanTimes, href: 'https://www.hindustantimes.com/lifestyle/relationships/tips-for-parents-to-address-their-teen-s-body-image-concerns-101675494188579.html' },
+  { name: 'TEDx', image: tedx, href: 'https://youtu.be/9ABOcdyCYWA' },
+  { name: 'Vogue', image: vogue, href: 'https://www.vogue.in/culture-and-living/content/vogue-warriors-psychologist-aanchal-narang-raising-money-for-sex-workers-women-in-homeless-shelters' },
+  { name: 'GQ', image: gq },
+  { name: 'Midday', image: midday },
+  { name: 'Indian Express', image: indianExpress, href: 'https://indianexpress.com/article/parenting/blog/children-rebellious-behaviour-bullying-peer-pressure-tips-for-parents-8424146/' },
+  { name: 'India Today', image: indiaToday },
+  { name: 'Mumbai Times', image: mumbaiTimes, href: 'https://mumbaitimes.org/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { name: 'News 18', image: news18 },
+  { name: 'Daily Pioneer', image: dailyPioneer, href: 'https://dailypioneer.in/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { name: 'Forbes', image: forbes },
+  { name: 'Outlook' },
+  { name: 'Asian Talks', image: asianTalks, href: 'https://theasiantalks.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
+  { name: 'Made in Asia', image: madeInAsia },
+  { name: 'SheThePeople', image: sheThePeople },
+  { name: 'Hindustan Saga', image: hindustanSaga },
+  { name: 'Medicircle', image: medicircle },
   { name: 'Asian Age', image: asianAge, href: 'https://theasianage.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
-  { name: 'The Asian Talks', image: asianTalks, href: 'https://theasiantalks.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
   { name: 'The Bharat Now', image: bharatNow, href: 'https://thebharatnow.com/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
   { name: 'The Cover Magazine', image: coverMagazine, href: 'https://thecovermagazine.com/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
   { name: 'Dailyhunt', image: dailyHunt, href: 'http://dhunt.in/13Xojp' },
-  { name: 'Daily Pioneer', image: dailyPioneer, href: 'https://dailypioneer.in/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
   { name: 'Daily Tribune', image: dailyTribune, href: 'https://dailytribune.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
   { name: 'Entrepreneur View', image: entrepreneurView, href: 'https://entrepreneurview.in/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
   { name: 'Forbesstory', image: forbesStory, href: 'https://forbesstory.com/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
   { name: 'H&B Magazine', image: hbMagazine, href: 'https://youtu.be/ToAP85ddYBg' },
   { name: 'Herald Post', image: heraldPost, href: 'https://heraldpost.in/aanchal-narang-on-infidelity-what-were-afraid-to-admit-about-why-couples-cheat/' },
-  { name: 'Hindustan Times', image: hindustanTimes, href: 'https://www.hindustantimes.com/lifestyle/relationships/tips-for-parents-to-address-their-teen-s-body-image-concerns-101675494188579.html' },
-  { name: 'The Indian Express', image: indianExpress, href: 'https://indianexpress.com/article/parenting/blog/children-rebellious-behaviour-bullying-peer-pressure-tips-for-parents-8424146/' },
   { name: 'LiveMint', image: livemint, href: 'https://livemint24.com/aanchal-narang-on-how-toxic-relationships-really-look/' },
-  { name: 'Mumbai Times', image: mumbaiTimes, href: 'https://mumbaitimes.org/aanchal-narang-on-how-sexual-assault-leaves-the-deepest-wounds/' },
   { name: 'NHRDN Mind Matters', image: nhrd, href: 'https://youtu.be/mbRsLskx6DY' },
   { name: 'Khabar OnDemand', image: onKhabar, href: 'https://khabarondemand.com/aanchal-narang-on-how-toxic-relationships-really-look/' },
-  { name: 'TEDxSFIT', image: tedx, href: 'https://youtu.be/9ABOcdyCYWA' },
   { name: 'The Hindu', image: theHindu, href: 'https://www.thehindu.com/society/queer-persons-on-the-pressure-to-conform-to-a-particular-image/article69731408.ece' },
   { name: 'Today Now', image: todayNow, href: 'https://todaynow.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
   { name: 'Tycoon World', image: tycoonWorld, href: 'https://tycoonworld.in/aanchal-narang-on-how-toxic-relationships-really-look/' },
-  { name: 'Vogue', image: vogue, href: 'https://www.vogue.in/culture-and-living/content/vogue-warriors-psychologist-aanchal-narang-raising-money-for-sex-workers-women-in-homeless-shelters' },
 ]
 
 export const featuredHighlights = [

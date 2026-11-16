@@ -4,18 +4,29 @@ import { pressLogos } from '../data/mediaFeatures.js'
 
 function Logo({ name, image, href, decorative = false }) {
   const content = (
-    <img
-      src={image}
-      alt={decorative ? '' : name}
-      aria-hidden={decorative || undefined}
-      className="h-[52px] w-[132px] object-contain"
-      loading="eager"
-    />
+    image ? (
+      <img
+        src={image}
+        alt={decorative ? '' : name}
+        aria-hidden={decorative || undefined}
+        className="h-[52px] w-[132px] object-contain"
+        loading="eager"
+      />
+    ) : (
+      <span
+        role={decorative ? undefined : 'img'}
+        aria-label={decorative ? undefined : name}
+        aria-hidden={decorative || undefined}
+        className="font-display text-lg font-bold tracking-wide text-ink"
+      >
+        {name.toUpperCase()}
+      </span>
+    )
   )
 
   return (
     <div className="flex h-[104px] w-[168px] flex-shrink-0 items-center justify-center rounded-[18px] border border-line bg-white px-4 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-card">
-      {decorative ? content : (
+      {decorative || !href ? content : (
         <a
           href={href}
           target="_blank"
