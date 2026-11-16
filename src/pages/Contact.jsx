@@ -12,9 +12,11 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const channels = [
   { icon: 'Phone', tint: 'bg-brand/12 text-brand-dark', label: 'Call', value: '+91 8879260310', href: 'tel:+918879260310' },
-  { icon: 'MessageCircle', tint: 'bg-[#2E9E82]/14 text-[#227C64]', label: 'WhatsApp', value: '+91 8879260310', href: 'https://api.whatsapp.com/send/?phone=%2B918879260310' },
+  { icon: 'WhatsApp', tint: 'bg-[#2E9E82]/14 text-[#227C64]', label: 'WhatsApp', value: '+91 8879260310', href: 'https://api.whatsapp.com/send/?phone=%2B918879260310' },
   { icon: 'Mail', tint: 'bg-[#C56A45]/14 text-[#B45C3B]', label: 'Email', value: 'admin@another-light.com', href: 'mailto:admin@another-light.com' },
   { icon: 'Instagram', tint: 'bg-[#6B5FC0]/14 text-[#5A4EB0]', label: 'Instagram', value: '@another_light_counselling', href: 'https://www.instagram.com/another_light_counselling/' },
+  { icon: 'Linkedin', tint: 'bg-[#0A66C2]/14 text-[#0A66C2]', label: 'LinkedIn', value: 'aanchal-narang', href: 'https://www.linkedin.com/in/aanchal-narang/' },
+  { icon: 'Youtube', tint: 'bg-[#FF0000]/12 text-[#D90000]', label: 'YouTube', value: '@AnotherLightCounselling', href: 'https://www.youtube.com/@AnotherLightCounselling' },
 ]
 
 const empty = { name: '', phone: '', email: '', service: 'Individual Therapy', message: '' }

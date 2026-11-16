@@ -11,7 +11,9 @@ const more = [
 ]
 const socials = [
   { href: 'https://www.instagram.com/another_light_counselling/', icon: 'Instagram', label: 'Instagram' },
-  { href: 'https://api.whatsapp.com/send/?phone=%2B918879260310', icon: 'MessageCircle', label: 'WhatsApp' },
+  { href: 'https://api.whatsapp.com/send/?phone=%2B918879260310', icon: 'WhatsApp', label: 'WhatsApp' },
+  { href: 'https://www.linkedin.com/in/aanchal-narang/', icon: 'Linkedin', label: 'LinkedIn' },
+  { href: 'https://www.youtube.com/@AnotherLightCounselling', icon: 'Youtube', label: 'YouTube' },
   { href: 'tel:+918879260310', icon: 'Phone', label: 'Phone' },
   { href: 'mailto:admin@another-light.com', icon: 'Mail', label: 'Email' },
 ]
